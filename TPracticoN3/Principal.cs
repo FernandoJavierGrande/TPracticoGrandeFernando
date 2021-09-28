@@ -569,8 +569,7 @@ namespace TPracticoN3
                 {
                     Console.WriteLine( ex + "Error por celda null");
                 }
-                
-                
+
             }
 
         }
@@ -637,14 +636,8 @@ namespace TPracticoN3
                 }
                 else
                 {
-
-                    
-
-                    Console.WriteLine(" valor del if " + (Convert.ToDouble(llenos) / espacios));
-
                     label_pocoEspacio.Text = "Queda poco espacio";
-                    label_pocoEspacio.Visible = true;
-                    
+                    label_pocoEspacio.Visible = true;                   
                 }
             }
             else
