@@ -68,6 +68,8 @@ namespace TPracticoN3
             this.label_subtitulo = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.progBar_memoria = new System.Windows.Forms.ProgressBar();
+            this.label_pocoEspacio = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vistaProductos)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +91,7 @@ namespace TPracticoN3
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actualizarToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.inicioToolStripMenuItem.Text = "Inicio";
             // 
             // actualizarToolStripMenuItem
@@ -106,7 +108,7 @@ namespace TPracticoN3
             this.modificarUnProductoToolStripMenuItem,
             this.vaciarTablaToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // eliminarUnProductoToolStripMenuItem
@@ -145,7 +147,7 @@ namespace TPracticoN3
             this.txt_Nombre.Location = new System.Drawing.Point(32, 168);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(136, 22);
-            this.txt_Nombre.TabIndex = 2;
+            this.txt_Nombre.TabIndex = 1;
             this.txt_Nombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_Nombre_MouseClick);
             // 
             // txt_Categoria
@@ -161,7 +163,7 @@ namespace TPracticoN3
             this.txt_Precio.Location = new System.Drawing.Point(32, 330);
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.Size = new System.Drawing.Size(75, 22);
-            this.txt_Precio.TabIndex = 5;
+            this.txt_Precio.TabIndex = 4;
             this.txt_Precio.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_Precio_MouseClick);
             // 
             // label2
@@ -213,7 +215,7 @@ namespace TPracticoN3
             this.cmb_Categoria.Location = new System.Drawing.Point(225, 166);
             this.cmb_Categoria.Name = "cmb_Categoria";
             this.cmb_Categoria.Size = new System.Drawing.Size(139, 24);
-            this.cmb_Categoria.TabIndex = 10;
+            this.cmb_Categoria.TabIndex = 2;
             this.cmb_Categoria.SelectionChangeCommitted += new System.EventHandler(this.cmb_Categoria_SelectionChangeCommitted);
             // 
             // label6
@@ -236,7 +238,7 @@ namespace TPracticoN3
             this.cmb_iva.Location = new System.Drawing.Point(156, 330);
             this.cmb_iva.Name = "cmb_iva";
             this.cmb_iva.Size = new System.Drawing.Size(82, 24);
-            this.cmb_iva.TabIndex = 12;
+            this.cmb_iva.TabIndex = 5;
             this.cmb_iva.SelectionChangeCommitted += new System.EventHandler(this.cmb_iva_SelectionChangeCommitted);
             // 
             // label7
@@ -255,13 +257,14 @@ namespace TPracticoN3
             this.txt_PrecioFinal.ReadOnly = true;
             this.txt_PrecioFinal.Size = new System.Drawing.Size(100, 22);
             this.txt_PrecioFinal.TabIndex = 14;
+            this.txt_PrecioFinal.TabStop = false;
             // 
             // Boton_Guardar
             // 
             this.Boton_Guardar.Location = new System.Drawing.Point(56, 436);
             this.Boton_Guardar.Name = "Boton_Guardar";
             this.Boton_Guardar.Size = new System.Drawing.Size(168, 65);
-            this.Boton_Guardar.TabIndex = 15;
+            this.Boton_Guardar.TabIndex = 6;
             this.Boton_Guardar.Text = "Guardar";
             this.Boton_Guardar.UseVisualStyleBackColor = true;
             this.Boton_Guardar.Click += new System.EventHandler(this.Boton_Guardar_Click);
@@ -284,7 +287,7 @@ namespace TPracticoN3
             this.vistaProductos.RowHeadersWidth = 51;
             this.vistaProductos.RowTemplate.Height = 24;
             this.vistaProductos.Size = new System.Drawing.Size(792, 425);
-            this.vistaProductos.TabIndex = 16;
+            this.vistaProductos.TabIndex = 7;
             this.vistaProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vistaProductos_CellDoubleClick);
             // 
             // tabla_nombre
@@ -361,7 +364,7 @@ namespace TPracticoN3
             this.BotonLimpiar.Location = new System.Drawing.Point(300, 436);
             this.BotonLimpiar.Name = "BotonLimpiar";
             this.BotonLimpiar.Size = new System.Drawing.Size(89, 29);
-            this.BotonLimpiar.TabIndex = 20;
+            this.BotonLimpiar.TabIndex = 7;
             this.BotonLimpiar.Text = "Limpiar";
             this.BotonLimpiar.UseVisualStyleBackColor = true;
             this.BotonLimpiar.Click += new System.EventHandler(this.BotonLimpiar_Click);
@@ -372,6 +375,7 @@ namespace TPracticoN3
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(85, 35);
             this.botonEliminar.TabIndex = 21;
+            this.botonEliminar.TabStop = false;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
             this.botonEliminar.Visible = false;
@@ -383,6 +387,7 @@ namespace TPracticoN3
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(85, 35);
             this.botonCancelar.TabIndex = 22;
+            this.botonCancelar.TabStop = false;
             this.botonCancelar.Text = "Cancelar";
             this.botonCancelar.UseVisualStyleBackColor = true;
             this.botonCancelar.Visible = false;
@@ -394,6 +399,7 @@ namespace TPracticoN3
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(85, 35);
             this.botonModificar.TabIndex = 23;
+            this.botonModificar.TabStop = false;
             this.botonModificar.Text = "Modificar";
             this.botonModificar.UseVisualStyleBackColor = true;
             this.botonModificar.Visible = false;
@@ -453,12 +459,34 @@ namespace TPracticoN3
             this.label13.TabIndex = 29;
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // progBar_memoria
+            // 
+            this.progBar_memoria.Location = new System.Drawing.Point(1018, 47);
+            this.progBar_memoria.MarqueeAnimationSpeed = 150;
+            this.progBar_memoria.Maximum = 10;
+            this.progBar_memoria.Name = "progBar_memoria";
+            this.progBar_memoria.Size = new System.Drawing.Size(170, 20);
+            this.progBar_memoria.Step = 1;
+            this.progBar_memoria.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progBar_memoria.TabIndex = 30;
+            // 
+            // label_pocoEspacio
+            // 
+            this.label_pocoEspacio.AutoSize = true;
+            this.label_pocoEspacio.Location = new System.Drawing.Point(1018, 70);
+            this.label_pocoEspacio.Name = "label_pocoEspacio";
+            this.label_pocoEspacio.Size = new System.Drawing.Size(0, 17);
+            this.label_pocoEspacio.TabIndex = 31;
+            this.label_pocoEspacio.Visible = false;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1329, 638);
+            this.Controls.Add(this.label_pocoEspacio);
+            this.Controls.Add(this.progBar_memoria);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label_subtitulo);
@@ -541,6 +569,8 @@ namespace TPracticoN3
         private System.Windows.Forms.Label label_subtitulo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ProgressBar progBar_memoria;
+        private System.Windows.Forms.Label label_pocoEspacio;
     }
 }
 

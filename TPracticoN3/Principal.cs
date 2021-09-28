@@ -38,7 +38,7 @@ namespace TPracticoN3
             cmb_Categoria.DropDownStyle = ComboBoxStyle.DropDownList;
             vistaProductos.AllowUserToAddRows = false;
 
-
+            progBar_memoria.Maximum = espacios;
 
 
             nombreProducto = new string [espacios];
@@ -161,10 +161,10 @@ namespace TPracticoN3
                             precioSinIva[i] = precioIngresado;
                             precioConIva[i] = double.Parse(txt_PrecioFinal.Text.Trim());
                             llenos += 1;
-                            Console.WriteLine("valor de i: " + i + " llenos : " + llenos);
                             i = espacios;
                             mostrarDatos();
-                            //Limpiar();
+                            memoriaDisponible();
+                            Limpiar();
                         }
                     }
                 }
@@ -219,6 +219,7 @@ namespace TPracticoN3
 
                         
                         vistaProductos.Rows.Add(fila);
+                        //memoriaDisponible();
                     }
                 }
 
@@ -377,6 +378,7 @@ namespace TPracticoN3
                             precioConIva[i] = 0;
                             i = espacios;
                             llenos--;
+                            memoriaDisponible();
                             control = true;
                         }
 
@@ -442,9 +444,11 @@ namespace TPracticoN3
                                     precioSinIva[i] = precioIngresado;
                                     precioConIva[i] = double.Parse(txt_PrecioFinal.Text.ToLower().Trim());
                                     i = espacios;
-                                    
+
+                                    memoriaDisponible();
                                     desbloquearEntradas(0);
                                     mostrarDatos();
+                                    
                                     MessageBox.Show("Se modificó correctamente.", "Cambios realizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 }
@@ -467,6 +471,7 @@ namespace TPracticoN3
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarDatos();
+            memoriaDisponible();
         }
 
         private void vaciarTablaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -495,6 +500,7 @@ namespace TPracticoN3
                             precioSinIva[i] = 0;
                             precioConIva[i] = 0;
                             llenos = 0;
+                            memoriaDisponible();
                             Limpiar();
                         }
                     }
@@ -618,6 +624,32 @@ namespace TPracticoN3
 
             return true;
         }
+        public void memoriaDisponible()
+        {
+            progBar_memoria.Value = llenos;
+            
+            if ((Convert.ToDouble(llenos) / espacios)>= 0.8)
+            {
+                if (llenos==espacios)
+                {
+                    label_pocoEspacio.Text = "Memoria llena";
+                    label_pocoEspacio.Visible = true;
+                }
+                else
+                {
+                    Console.WriteLine(" valor del if " + (Convert.ToDouble(llenos) / espacios));
+                    label_pocoEspacio.Text = "Queda poco espacio";
+                    label_pocoEspacio.Visible = true;
+                    
+                }
+            }
+            else
+            {
+                label_pocoEspacio.Visible = false;
+                
+            }
+        }
+
     }
 
 
