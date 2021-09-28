@@ -14,7 +14,7 @@ namespace TPracticoN3
     public partial class Principal : Form
     {
         double precioIngresado, precioFinal, iva = 1.0, precioEliminar, Mod_PSinIva;
-        string mensaje, precioTxt;
+        string mensaje;
         int espacios = 5, llenos = 0;
         string prodELim;
         bool bandera = false;
@@ -276,10 +276,9 @@ namespace TPracticoN3
 
         public void desbloquearEntradas(int arg)
         {
-            
-            
-            labelEliminar.Visible = false;
-            labelEliminar.Text = "";
+
+            //labelEliminar.Visible = false;
+            label_subtitulo.Text = "Cargar nuevo producto";
             txt_Categoria.ReadOnly =false;
             txt_Precio.ReadOnly = false;
             txt_Nombre.ReadOnly = false;
@@ -296,20 +295,19 @@ namespace TPracticoN3
 
             switch (arg)
             {
-                case 0:
+                case 0:     // habilita todos los componentes para cargar normalmente
                     bandera = false;
                     Limpiar();
                     botonCancelar.Visible = false;
                     botonModificar.Visible = false;
                     cmb_iva.Enabled = true;
-
+                    label10.Visible = false;
                     cmb_iva.SelectedIndex = -1;
 
                     break;
                 case 1:           // 1 habilita para modificar pero no el bton guardar p evitar otro regist nuevo no vacia
                     bandera = true;
                     Boton_Guardar.Enabled = false;
-
 
                     break;
                 default:
@@ -337,22 +335,24 @@ namespace TPracticoN3
             label10.Visible = true;
             switch (opciones)
             {
-                case 1:
-                                  /// para eliminar
-                    labelEliminar.Text = "Producto\na eliminar";
-                    labelEliminar.Visible = true;
+                case 1:             // para eliminar
+                    label_subtitulo.Text = "Producto a eliminar";
+                    //labelEliminar.Visible = true;
                     cmb_iva.Enabled = false;
                     cmb_Categoria.Enabled = false;
                     BotonLimpiar.Enabled = false;
+                    botonModificar.Visible = false;
                     botonEliminar.Visible = true;
+                    botonEliminar.Enabled = false;
                     break;
-                case 2:
-                    labelEliminar.Text = "Producto\na Modificar";
-                    labelEliminar.Visible = false;
+                case 2:         // para modificar
+                    label_subtitulo.Text = "Producto a Modificar";
+                    //labelEliminar.Visible = false;
                     cmb_iva.Enabled = true;
                     cmb_Categoria.Enabled = true;
                     BotonLimpiar.Enabled = true;
                     botonModificar.Visible = true;
+                    botonModificar.Enabled = false;
                     botonEliminar.Visible = false;
                     break;               
             } 
@@ -509,7 +509,7 @@ namespace TPracticoN3
 
         private void vistaProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int indiceEli;         // eliminar
+                
             string itemIva;
             string itemCategoria;
             if (bandera)
@@ -517,19 +517,22 @@ namespace TPracticoN3
                 try
                 {
                     prodELim = vistaProductos.CurrentRow.Cells[0].Value.ToString();
-                    
+
                     Mod_PSinIva = Convert.ToDouble(vistaProductos.CurrentRow.Cells[3].Value);
                     precioEliminar = Convert.ToDouble(vistaProductos.CurrentRow.Cells[4].Value);
                     txt_Nombre.Text = prodELim;
                     txt_PrecioFinal.Text = precioEliminar.ToString();
                     txt_Precio.Text = Mod_PSinIva.ToString();
+                    botonEliminar.Enabled = true;
+
 
                     if (botonModificar.Visible)
                     {
                         itemCategoria = vistaProductos.CurrentRow.Cells[1].Value.ToString();
                         txt_Categoria.Text = itemCategoria;
                         itemIva = vistaProductos.CurrentRow.Cells[2].Value.ToString();
-                        Console.WriteLine("entro  al if -" + itemIva);
+                        botonEliminar.Enabled = false;
+                        botonModificar.Enabled = true;
                         if (itemIva == "21%")
                         {
                             cmb_iva.SelectedIndex = 0;

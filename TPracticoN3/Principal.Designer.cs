@@ -64,8 +64,10 @@ namespace TPracticoN3
             this.botonCancelar = new System.Windows.Forms.Button();
             this.botonModificar = new System.Windows.Forms.Button();
             this.labelEliminar = new System.Windows.Forms.Label();
-            this.label_dobleclick = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label_subtitulo = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vistaProductos)).BeginInit();
             this.SuspendLayout();
@@ -87,13 +89,13 @@ namespace TPracticoN3
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actualizarToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 11);
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.inicioToolStripMenuItem.Text = "Inicio";
             // 
             // actualizarToolStripMenuItem
             // 
             this.actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.actualizarToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.actualizarToolStripMenuItem.Text = "Actualizar";
             this.actualizarToolStripMenuItem.Click += new System.EventHandler(this.actualizarToolStripMenuItem_Click);
             // 
@@ -104,7 +106,7 @@ namespace TPracticoN3
             this.modificarUnProductoToolStripMenuItem,
             this.vaciarTablaToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 11);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // eliminarUnProductoToolStripMenuItem
@@ -132,7 +134,7 @@ namespace TPracticoN3
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(241, 38);
+            this.label1.Location = new System.Drawing.Point(180, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(271, 48);
             this.label1.TabIndex = 1;
@@ -140,7 +142,7 @@ namespace TPracticoN3
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(32, 143);
+            this.txt_Nombre.Location = new System.Drawing.Point(32, 168);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(136, 22);
             this.txt_Nombre.TabIndex = 2;
@@ -148,7 +150,7 @@ namespace TPracticoN3
             // 
             // txt_Categoria
             // 
-            this.txt_Categoria.Location = new System.Drawing.Point(225, 225);
+            this.txt_Categoria.Location = new System.Drawing.Point(225, 240);
             this.txt_Categoria.Name = "txt_Categoria";
             this.txt_Categoria.Size = new System.Drawing.Size(116, 22);
             this.txt_Categoria.TabIndex = 3;
@@ -165,11 +167,11 @@ namespace TPracticoN3
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 120);
+            this.label2.Location = new System.Drawing.Point(29, 146);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 17);
+            this.label2.Size = new System.Drawing.Size(118, 17);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Nombre Producto";
+            this.label2.Text = "Nombre producto";
             // 
             // label3
             // 
@@ -192,7 +194,7 @@ namespace TPracticoN3
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 205);
+            this.label5.Location = new System.Drawing.Point(222, 220);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 17);
             this.label5.TabIndex = 9;
@@ -208,7 +210,7 @@ namespace TPracticoN3
             "Limpieza",
             "Ferreteria",
             "Otros"});
-            this.cmb_Categoria.Location = new System.Drawing.Point(224, 141);
+            this.cmb_Categoria.Location = new System.Drawing.Point(225, 166);
             this.cmb_Categoria.Name = "cmb_Categoria";
             this.cmb_Categoria.Size = new System.Drawing.Size(139, 24);
             this.cmb_Categoria.TabIndex = 10;
@@ -217,11 +219,11 @@ namespace TPracticoN3
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(222, 121);
+            this.label6.Location = new System.Drawing.Point(222, 146);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 17);
+            this.label6.Size = new System.Drawing.Size(140, 17);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Seleccione Categoria";
+            this.label6.Text = "Seleccione categoria";
             // 
             // cmb_iva
             // 
@@ -256,7 +258,7 @@ namespace TPracticoN3
             // 
             // Boton_Guardar
             // 
-            this.Boton_Guardar.Location = new System.Drawing.Point(133, 394);
+            this.Boton_Guardar.Location = new System.Drawing.Point(56, 436);
             this.Boton_Guardar.Name = "Boton_Guardar";
             this.Boton_Guardar.Size = new System.Drawing.Size(168, 65);
             this.Boton_Guardar.TabIndex = 15;
@@ -276,12 +278,12 @@ namespace TPracticoN3
             this.tabla_precio,
             this.tabla_precioFinal});
             this.vistaProductos.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.vistaProductos.Location = new System.Drawing.Point(525, 98);
+            this.vistaProductos.Location = new System.Drawing.Point(525, 110);
             this.vistaProductos.Name = "vistaProductos";
             this.vistaProductos.ReadOnly = true;
             this.vistaProductos.RowHeadersWidth = 51;
             this.vistaProductos.RowTemplate.Height = 24;
-            this.vistaProductos.Size = new System.Drawing.Size(792, 447);
+            this.vistaProductos.Size = new System.Drawing.Size(792, 425);
             this.vistaProductos.TabIndex = 16;
             this.vistaProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vistaProductos_CellDoubleClick);
             // 
@@ -330,7 +332,7 @@ namespace TPracticoN3
             this.labelPruebaa.AutoSize = true;
             this.labelPruebaa.CausesValidation = false;
             this.labelPruebaa.Font = new System.Drawing.Font("Verdana", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPruebaa.Location = new System.Drawing.Point(739, 66);
+            this.labelPruebaa.Location = new System.Drawing.Point(586, 38);
             this.labelPruebaa.Name = "labelPruebaa";
             this.labelPruebaa.Size = new System.Drawing.Size(331, 29);
             this.labelPruebaa.TabIndex = 17;
@@ -356,9 +358,9 @@ namespace TPracticoN3
             // 
             // BotonLimpiar
             // 
-            this.BotonLimpiar.Location = new System.Drawing.Point(377, 436);
+            this.BotonLimpiar.Location = new System.Drawing.Point(300, 436);
             this.BotonLimpiar.Name = "BotonLimpiar";
-            this.BotonLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.BotonLimpiar.Size = new System.Drawing.Size(89, 29);
             this.BotonLimpiar.TabIndex = 20;
             this.BotonLimpiar.Text = "Limpiar";
             this.BotonLimpiar.UseVisualStyleBackColor = true;
@@ -366,7 +368,7 @@ namespace TPracticoN3
             // 
             // botonEliminar
             // 
-            this.botonEliminar.Location = new System.Drawing.Point(567, 551);
+            this.botonEliminar.Location = new System.Drawing.Point(567, 567);
             this.botonEliminar.Name = "botonEliminar";
             this.botonEliminar.Size = new System.Drawing.Size(85, 35);
             this.botonEliminar.TabIndex = 21;
@@ -377,7 +379,7 @@ namespace TPracticoN3
             // 
             // botonCancelar
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(849, 551);
+            this.botonCancelar.Location = new System.Drawing.Point(815, 567);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(85, 35);
             this.botonCancelar.TabIndex = 22;
@@ -388,7 +390,7 @@ namespace TPracticoN3
             // 
             // botonModificar
             // 
-            this.botonModificar.Location = new System.Drawing.Point(690, 551);
+            this.botonModificar.Location = new System.Drawing.Point(692, 567);
             this.botonModificar.Name = "botonModificar";
             this.botonModificar.Size = new System.Drawing.Size(85, 35);
             this.botonModificar.TabIndex = 23;
@@ -401,31 +403,55 @@ namespace TPracticoN3
             // 
             this.labelEliminar.AutoSize = true;
             this.labelEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEliminar.Location = new System.Drawing.Point(32, 177);
+            this.labelEliminar.Location = new System.Drawing.Point(32, 181);
             this.labelEliminar.Name = "labelEliminar";
             this.labelEliminar.Size = new System.Drawing.Size(0, 18);
             this.labelEliminar.TabIndex = 24;
             this.labelEliminar.Visible = false;
             // 
-            // label_dobleclick
-            // 
-            this.label_dobleclick.AutoSize = true;
-            this.label_dobleclick.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_dobleclick.Location = new System.Drawing.Point(28, 525);
-            this.label_dobleclick.Name = "label_dobleclick";
-            this.label_dobleclick.Size = new System.Drawing.Size(0, 20);
-            this.label_dobleclick.TabIndex = 25;
-            // 
             // label10
             // 
             this.label10.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(15, 505);
+            this.label10.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 533);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(450, 69);
             this.label10.TabIndex = 26;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label10.Visible = false;
+            // 
+            // label_subtitulo
+            // 
+            this.label_subtitulo.AutoSize = true;
+            this.label_subtitulo.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_subtitulo.Location = new System.Drawing.Point(29, 110);
+            this.label_subtitulo.Name = "label_subtitulo";
+            this.label_subtitulo.Size = new System.Drawing.Size(196, 18);
+            this.label_subtitulo.TabIndex = 27;
+            this.label_subtitulo.Text = "Cargar nuevo producto\r\n";
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label12.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(0, 90);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(1329, 3);
+            this.label12.TabIndex = 28;
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label13.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(505, 30);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(3, 620);
+            this.label13.TabIndex = 29;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Principal
             // 
@@ -433,8 +459,10 @@ namespace TPracticoN3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1329, 638);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label_subtitulo);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label_dobleclick);
             this.Controls.Add(this.labelEliminar);
             this.Controls.Add(this.botonModificar);
             this.Controls.Add(this.botonCancelar);
@@ -509,8 +537,10 @@ namespace TPracticoN3
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.Button botonModificar;
         private System.Windows.Forms.Label labelEliminar;
-        private System.Windows.Forms.Label label_dobleclick;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label_subtitulo;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 
