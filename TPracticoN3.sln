@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPracticoN4", "TPracticoN3\TPracticoN4.csproj", "{CEC6DD47-38EF-4D50-8A0E-D993ADC7A2CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPracticoN3", "TPracticoN3\TPracticoN3.csproj", "{CEC6DD47-38EF-4D50-8A0E-D993ADC7A2CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

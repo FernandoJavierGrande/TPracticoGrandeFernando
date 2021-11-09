@@ -8,22 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TPracticoN3.clases;
 
 namespace TPracticoN3
 {
     public partial class Principal : Form
     {
         double precioIngresado, precioFinal, iva = 1.0, precioEliminar, Mod_PSinIva;
-        string mensaje, titulo;
-        int  llenos = 0;
+        string mensaje;
+        int espacios = 5, llenos = 0;
         string prodELim;
         bool bandera = false;
 
-        GestionProducto gestion = new GestionProducto();
-        Producto producto = new Producto();
 
-        
+        //arreglos de memoria
+        string[] nombreProducto;
+        string[] categoriaProducto;
+        string[] tipoIva;
+        double[] precioSinIva;
+        double[] precioConIva;
         
         
 
@@ -36,10 +38,14 @@ namespace TPracticoN3
             cmb_Categoria.DropDownStyle = ComboBoxStyle.DropDownList;
             vistaProductos.AllowUserToAddRows = false;
 
-            progBar_memoria.Maximum = 5;
+            progBar_memoria.Maximum = espacios;
 
 
-            
+            nombreProducto = new string [espacios];
+            categoriaProducto = new string[espacios];
+            tipoIva = new string[espacios];
+            precioSinIva = new double[espacios];
+            precioConIva = new double[espacios];
 
          
 
@@ -127,35 +133,55 @@ namespace TPracticoN3
 
                 if (iva_ok)
                 {
-                    producto.Id = 0;
-                    producto.NombreProducto = txt_Nombre.Text.Trim();
-                    producto.CategoriaProducto = txt_Categoria.Text.Trim();
-                    producto.TipoIva = cmb_Categoria.SelectedItem.ToString().Trim();
-                    producto.PrecioBruto = precioIngresado;
-                    producto.PrecioFinal = precioFinal;
-
-                    bool res = gestion.AgregarProducto(producto);
-
-                    if (res)
-                    {
-                        mensaje = "Se guardó correctamente";
-                        titulo = "Informacion";
-                    }
-                    else
-                    {
-                        mensaje = "No se pudo guardar el producto\n Intente nuevamente";
-                        titulo = "Error en el guardado";
-                    }
-
                     
-                    MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    guardar();
+                    
                 }
             }
  
 
         }
 
+        public void guardar()
+        {
 
+            try
+            {
+                if (llenos<(espacios))
+                {
+                    for (int i = 0; i < espacios; i++)
+                    {
+
+                        if (nombreProducto[i] == null && nombreProducto[i] == null)
+                        {
+
+                            nombreProducto[i] = txt_Nombre.Text.Trim().ToLower();
+                            categoriaProducto[i] = txt_Categoria.Text.Trim().ToLower();
+                            tipoIva[i] = cmb_iva.SelectedItem.ToString().Trim();
+                            precioSinIva[i] = precioIngresado;
+                            precioConIva[i] = double.Parse(txt_PrecioFinal.Text.Trim());
+                            llenos += 1;
+                            i = espacios;
+                            mostrarDatos();
+                            memoriaDisponible();
+                            Limpiar();
+                        }
+                    }
+                }
+                else
+                {
+                    mensaje = "Deberá eliminar algun producto para seguir guardando";
+                    MessageBox.Show(mensaje, "Memoria Llena", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e + " Error en la carga al arreglo");
+                
+            }
+
+        }
 
         public void Limpiar()
         {
@@ -175,34 +201,34 @@ namespace TPracticoN3
 
         public void mostrarDatos()
         {
-            //try
-            //{
-            //    vistaProductos.Rows.Clear();
+            try
+            {
+                vistaProductos.Rows.Clear();
 
-            //    for (int i = 0; i < espacios; i++)
-            //    {
-            //        if (nombreProducto[i] != null && categoriaProducto[i] !=null)
-            //        {
-            //            DataGridViewRow fila = new DataGridViewRow();
-            //            fila.CreateCells(vistaProductos);
-            //            fila.Cells[0].Value = nombreProducto[i];
-            //            fila.Cells[1].Value = categoriaProducto[i];
-            //            fila.Cells[2].Value = tipoIva[i];
-            //            fila.Cells[3].Value = precioSinIva[i];
-            //            fila.Cells[4].Value = precioConIva[i];
+                for (int i = 0; i < espacios; i++)
+                {
+                    if (nombreProducto[i] != null && categoriaProducto[i] !=null)
+                    {
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(vistaProductos);
+                        fila.Cells[0].Value = nombreProducto[i];
+                        fila.Cells[1].Value = categoriaProducto[i];
+                        fila.Cells[2].Value = tipoIva[i];
+                        fila.Cells[3].Value = precioSinIva[i];
+                        fila.Cells[4].Value = precioConIva[i];
 
                         
-            //            vistaProductos.Rows.Add(fila);
-            //            //memoriaDisponible();
-            //        }
-            //    }
+                        vistaProductos.Rows.Add(fila);
+                        //memoriaDisponible();
+                    }
+                }
 
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e + "Error en la carga a la tabla");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e + "Error en la carga a la tabla");
                 
-            //}
+            }
         }
         private void BotonLimpiar_Click(object sender, EventArgs e)
         {
@@ -244,7 +270,8 @@ namespace TPracticoN3
 
                 }
             }
-               
+            
+            
 
         }
 
@@ -336,7 +363,41 @@ namespace TPracticoN3
         private void botonEliminar_Click(object sender, EventArgs e)
         {
             bool control = false;
-           
+            try
+            {
+                for (int i = 0; i < espacios; i++)
+                {
+                    if (nombreProducto[i]!= null)
+                    {
+                        if (nombreProducto[i].ToLower().Trim().Equals(prodELim.ToLower().Trim()) && precioConIva[i]==precioEliminar)
+                        {
+                            nombreProducto[i] = null;
+                            categoriaProducto[i] = null;
+                            tipoIva[i] = null;
+                            precioSinIva[i] = 0;
+                            precioConIva[i] = 0;
+                            i = espacios;
+                            llenos--;
+                            memoriaDisponible();
+                            control = true;
+                        }
+
+                    }
+                    
+                }
+                if (!control)
+                {
+                    MessageBox.Show("No se encontró el producto", "No existe el producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                bandera = false;
+                mostrarDatos();
+                desbloquearEntradas(0);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void botonCancelar_Click(object sender, EventArgs e)
@@ -362,7 +423,47 @@ namespace TPracticoN3
         private void botonModificar_Click(object sender, EventArgs e)
         {
             bool res_info, res_precio;
-           
+            res_info = ValidarCampos();
+            if (res_info)
+            {
+                res_precio = CalcularIva();
+
+                if (res_precio)
+                {
+                    try
+                    {
+                        for (int i = 0; i < espacios; i++)
+                        {
+                            if (nombreProducto[i] != null)
+                            {
+                                if (nombreProducto[i].ToLower().Trim().Equals(prodELim.ToLower().Trim()) && precioConIva[i] == precioEliminar)
+                                {
+                                    nombreProducto[i] = txt_Nombre.Text.ToLower().Trim();
+                                    categoriaProducto[i] = txt_Categoria.Text.ToLower().Trim();
+                                    tipoIva[i] = cmb_iva.SelectedItem.ToString().ToLower().Trim();
+                                    precioSinIva[i] = precioIngresado;
+                                    precioConIva[i] = double.Parse(txt_PrecioFinal.Text.ToLower().Trim());
+                                    i = espacios;
+
+                                    memoriaDisponible();
+                                    desbloquearEntradas(0);
+                                    mostrarDatos();
+                                    
+                                    MessageBox.Show("Se modificó correctamente.", "Cambios realizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("Ocurrio un error \nal intentar realizar la modificacion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                    
+                }
+            }
 
 
         }
@@ -389,19 +490,19 @@ namespace TPracticoN3
                 {
                     try
                     {
-                        //vistaProductos.Rows.Clear();
+                        vistaProductos.Rows.Clear();
 
-                        //for (int i = 0; i < espacios; i++)
-                        //{
-                        //    nombreProducto[i] = null;
-                        //    categoriaProducto[i] = null;
-                        //    tipoIva[i] = null;
-                        //    precioSinIva[i] = 0;
-                        //    precioConIva[i] = 0;
-                        //    llenos = 0;
-                        //    memoriaDisponible();
-                        //    Limpiar();
-                        //}
+                        for (int i = 0; i < espacios; i++)
+                        {
+                            nombreProducto[i] = null;
+                            categoriaProducto[i] = null;
+                            tipoIva[i] = null;
+                            precioSinIva[i] = 0;
+                            precioConIva[i] = 0;
+                            llenos = 0;
+                            memoriaDisponible();
+                            Limpiar();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -524,9 +625,27 @@ namespace TPracticoN3
         }
         public void memoriaDisponible()
         {
-
+            progBar_memoria.Value = llenos;
+            
+            if ((Convert.ToDouble(llenos) / espacios)>= 0.8)
+            {
+                if (llenos==espacios)
+                {
+                    label_pocoEspacio.Text = "Memoria llena";
+                    label_pocoEspacio.Visible = true;
+                }
+                else
+                {
+                    label_pocoEspacio.Text = "Queda poco espacio";
+                    label_pocoEspacio.Visible = true;                   
+                }
+            }
+            else
+            {
+                label_pocoEspacio.Visible = false;
+                
+            }
         }
-
 
     }
 

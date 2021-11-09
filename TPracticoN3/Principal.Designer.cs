@@ -51,6 +51,11 @@ namespace TPracticoN3
             this.txt_PrecioFinal = new System.Windows.Forms.TextBox();
             this.Boton_Guardar = new System.Windows.Forms.Button();
             this.vistaProductos = new System.Windows.Forms.DataGridView();
+            this.tabla_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabla_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabla_tipo_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabla_precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabla_precioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelPruebaa = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,12 +70,6 @@ namespace TPracticoN3
             this.label13 = new System.Windows.Forms.Label();
             this.progBar_memoria = new System.Windows.Forms.ProgressBar();
             this.label_pocoEspacio = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabla_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabla_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabla_tipo_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabla_precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabla_precioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vistaProductos)).BeginInit();
             this.SuspendLayout();
@@ -92,7 +91,7 @@ namespace TPracticoN3
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actualizarToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.inicioToolStripMenuItem.Text = "Inicio";
             // 
             // actualizarToolStripMenuItem
@@ -109,7 +108,7 @@ namespace TPracticoN3
             this.modificarUnProductoToolStripMenuItem,
             this.vaciarTablaToolStripMenuItem});
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             // 
             // eliminarUnProductoToolStripMenuItem
@@ -276,7 +275,6 @@ namespace TPracticoN3
             this.vistaProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.vistaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vistaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
             this.tabla_nombre,
             this.tabla_categoria,
             this.tabla_tipo_iva,
@@ -291,6 +289,46 @@ namespace TPracticoN3
             this.vistaProductos.Size = new System.Drawing.Size(792, 425);
             this.vistaProductos.TabIndex = 7;
             this.vistaProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vistaProductos_CellDoubleClick);
+            // 
+            // tabla_nombre
+            // 
+            this.tabla_nombre.HeaderText = "Nombre";
+            this.tabla_nombre.MinimumWidth = 6;
+            this.tabla_nombre.Name = "tabla_nombre";
+            this.tabla_nombre.ReadOnly = true;
+            this.tabla_nombre.Width = 125;
+            // 
+            // tabla_categoria
+            // 
+            this.tabla_categoria.HeaderText = "Categoria";
+            this.tabla_categoria.MinimumWidth = 6;
+            this.tabla_categoria.Name = "tabla_categoria";
+            this.tabla_categoria.ReadOnly = true;
+            this.tabla_categoria.Width = 125;
+            // 
+            // tabla_tipo_iva
+            // 
+            this.tabla_tipo_iva.HeaderText = "Tipo IVA";
+            this.tabla_tipo_iva.MinimumWidth = 6;
+            this.tabla_tipo_iva.Name = "tabla_tipo_iva";
+            this.tabla_tipo_iva.ReadOnly = true;
+            this.tabla_tipo_iva.Width = 70;
+            // 
+            // tabla_precio
+            // 
+            this.tabla_precio.HeaderText = "Precio bruto";
+            this.tabla_precio.MinimumWidth = 6;
+            this.tabla_precio.Name = "tabla_precio";
+            this.tabla_precio.ReadOnly = true;
+            this.tabla_precio.Width = 110;
+            // 
+            // tabla_precioFinal
+            // 
+            this.tabla_precioFinal.HeaderText = "Precio Final";
+            this.tabla_precioFinal.MinimumWidth = 6;
+            this.tabla_precioFinal.Name = "tabla_precioFinal";
+            this.tabla_precioFinal.ReadOnly = true;
+            this.tabla_precioFinal.Width = 110;
             // 
             // labelPruebaa
             // 
@@ -441,54 +479,6 @@ namespace TPracticoN3
             this.label_pocoEspacio.TabIndex = 31;
             this.label_pocoEspacio.Visible = false;
             // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 40;
-            // 
-            // tabla_nombre
-            // 
-            this.tabla_nombre.HeaderText = "Nombre";
-            this.tabla_nombre.MinimumWidth = 6;
-            this.tabla_nombre.Name = "tabla_nombre";
-            this.tabla_nombre.ReadOnly = true;
-            this.tabla_nombre.Width = 125;
-            // 
-            // tabla_categoria
-            // 
-            this.tabla_categoria.HeaderText = "Categoria";
-            this.tabla_categoria.MinimumWidth = 6;
-            this.tabla_categoria.Name = "tabla_categoria";
-            this.tabla_categoria.ReadOnly = true;
-            this.tabla_categoria.Width = 125;
-            // 
-            // tabla_tipo_iva
-            // 
-            this.tabla_tipo_iva.HeaderText = "Tipo IVA";
-            this.tabla_tipo_iva.MinimumWidth = 6;
-            this.tabla_tipo_iva.Name = "tabla_tipo_iva";
-            this.tabla_tipo_iva.ReadOnly = true;
-            this.tabla_tipo_iva.Width = 70;
-            // 
-            // tabla_precio
-            // 
-            this.tabla_precio.HeaderText = "Precio bruto";
-            this.tabla_precio.MinimumWidth = 6;
-            this.tabla_precio.Name = "tabla_precio";
-            this.tabla_precio.ReadOnly = true;
-            this.tabla_precio.Width = 110;
-            // 
-            // tabla_precioFinal
-            // 
-            this.tabla_precioFinal.HeaderText = "Precio Final";
-            this.tabla_precioFinal.MinimumWidth = 6;
-            this.tabla_precioFinal.Name = "tabla_precioFinal";
-            this.tabla_precioFinal.ReadOnly = true;
-            this.tabla_precioFinal.Width = 110;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -529,7 +519,7 @@ namespace TPracticoN3
             this.MaximizeBox = false;
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "  ";
+            this.Text = "Gestionar";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vistaProductos)).EndInit();
@@ -562,6 +552,11 @@ namespace TPracticoN3
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button BotonLimpiar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_tipo_iva;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_precioFinal;
         private System.Windows.Forms.ToolStripMenuItem actualizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarUnProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarUnProductoToolStripMenuItem;
@@ -576,12 +571,6 @@ namespace TPracticoN3
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ProgressBar progBar_memoria;
         private System.Windows.Forms.Label label_pocoEspacio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_tipo_iva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tabla_precioFinal;
     }
 }
 
