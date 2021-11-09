@@ -1,0 +1,10 @@
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\bin\Debug\TPracticoN3.exe.config
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\bin\Debug\TPracticoN3.exe
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\bin\Debug\TPracticoN3.pdb
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN4.csproj.AssemblyReference.cache
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN3.Principal.resources
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN3.Properties.Resources.resources
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN4.csproj.GenerateResource.cache
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN4.csproj.CoreCompileInputs.cache
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN3.exe
+C:\Users\Fernando\source\repos\TPracticoN4\TPracticoN3\obj\Debug\TPracticoN3.pdb
